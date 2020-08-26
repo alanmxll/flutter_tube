@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_tube/delegates/data_search.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -12,7 +13,13 @@ class Home extends StatelessWidget {
         actions: [
           Align(alignment: Alignment.center, child: Text('0')),
           IconButton(icon: Icon(Icons.star), onPressed: () {}),
-          IconButton(icon: Icon(Icons.search), onPressed: () {}),
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () async {
+              String result =
+                  await showSearch(context: context, delegate: DataSearch());
+            },
+          ),
         ],
       ),
       body: Container(),
