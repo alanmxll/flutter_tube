@@ -79,7 +79,7 @@ class DataSearch extends SearchDelegate<String> {
         return value[0];
       }).toList();
     } else {
-      throw Exception('Failed to load sugestions.');
+      throw Exception('Failed to load suggestions.');
     }
   }
 }

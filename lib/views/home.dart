@@ -1,5 +1,7 @@
+import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_tube/blocs/videos_bloc.dart';
 import 'package:flutter_tube/delegates/data_search.dart';
 
 class Home extends StatelessWidget {
@@ -18,11 +20,22 @@ class Home extends StatelessWidget {
             onPressed: () async {
               String result =
                   await showSearch(context: context, delegate: DataSearch());
+              if (result != null) {
+                BlocProvider.of<VideosBloc>(context).inSearch.add(result);
+              }
             },
           ),
         ],
       ),
-      body: Container(),
+      body: StreamBuilder(
+          stream: BlocProvider.of<VideosBloc>(context).outVideos,
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) {
+              return Container();
+            } else {
+              ListView.builder(itemBuilder: null);
+            }
+          }),
     );
   }
 }
