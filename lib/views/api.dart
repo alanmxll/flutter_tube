@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 
 import '../models/video.dart';
 
-const API_KEY = 'AIzaSyAG4hI75B2XQ_WVKxZSwLd3yXGfuyB3uME';
+const API_KEY = 'AIzaSyA9_8FvimouGxd8R8Bdrqb4bK1mQheWuL0';
 
 class Api {
   search(String search) async {
@@ -15,7 +15,7 @@ class Api {
     return decode(response);
   }
 
-  decode(http.Response response) {
+  List<Video> decode(http.Response response) {
     if (response.statusCode == 200) {
       var decoded = json.decode(response.body);
 
