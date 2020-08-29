@@ -29,6 +29,7 @@ class Home extends StatelessWidget {
           ),
         ],
       ),
+      backgroundColor: Colors.black,
       body: StreamBuilder(
         stream: BlocProvider.of<VideosBloc>(context).outVideos,
         initialData: [],
