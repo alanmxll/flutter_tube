@@ -1,6 +1,8 @@
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_tube/blocs/favorites_bloc.dart';
+import 'package:flutter_tube/models/video.dart';
 
 import '../blocs/videos_bloc.dart';
 import '../delegates/data_search.dart';
@@ -17,7 +19,20 @@ class Home extends StatelessWidget {
         elevation: 0,
         title: Image.asset('images/yt_logo_rgb_dark.png', height: 25),
         actions: [
-          Align(alignment: Alignment.center, child: Text('0')),
+          Align(
+            alignment: Alignment.center,
+            child: StreamBuilder<Map<String, Video>>(
+              stream: BlocProvider.of<FavoritesBloc>(context).outFavorite,
+              initialData: {},
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return Text('${snapshot.data.length}');
+                } else {
+                  return Container();
+                }
+              },
+            ),
+          ),
           IconButton(icon: Icon(Icons.star), onPressed: () {}),
           IconButton(
             icon: Icon(Icons.search),
