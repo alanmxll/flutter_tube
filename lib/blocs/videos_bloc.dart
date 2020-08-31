@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:bloc_pattern/bloc_pattern.dart';
 
 import '../models/video.dart';
-import '../views/api.dart';
+import '../api.dart';
 
 class VideosBloc implements BlocBase {
   Api api;

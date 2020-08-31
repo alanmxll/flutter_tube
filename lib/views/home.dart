@@ -1,12 +1,13 @@
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_tube/blocs/favorites_bloc.dart';
-import 'package:flutter_tube/models/video.dart';
 
+import '../blocs/favorites_bloc.dart';
 import '../blocs/videos_bloc.dart';
 import '../delegates/data_search.dart';
+import '../models/video.dart';
 import '../widgets/video_tile.dart';
+import 'favorites.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -32,7 +33,15 @@ class Home extends StatelessWidget {
               },
             ),
           ),
-          IconButton(icon: Icon(Icons.star), onPressed: () {}),
+          IconButton(
+            icon: Icon(Icons.star),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Favorites()),
+              );
+            },
+          ),
           IconButton(
             icon: Icon(Icons.search),
             onPressed: () async {

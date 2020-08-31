@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-import '../models/video.dart';
+import 'models/video.dart';
 
 const API_KEY = 'AIzaSyA9_8FvimouGxd8R8Bdrqb4bK1mQheWuL0';
 
