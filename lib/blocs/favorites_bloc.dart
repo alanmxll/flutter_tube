@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:bloc_pattern/bloc_pattern.dart';
+import 'package:rxdart/subjects.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/video.dart';
@@ -9,8 +10,8 @@ import '../models/video.dart';
 class FavoritesBloc implements BlocBase {
   Map<String, Video> _favorites = {};
 
-  final StreamController<Map<String, Video>> _favoritesController =
-      StreamController<Map<String, Video>>.broadcast();
+  final _favoritesController =
+      BehaviorSubject<Map<String, Video>>(seedValue: {});
 
   Stream<Map<String, Video>> get outFavorite => _favoritesController.stream;
 

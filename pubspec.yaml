@@ -35,7 +35,7 @@ dependencies:
   # Wraps platform-specific persistent storage for simple data
   shared_preferences: ^0.5.10
   # RxDart adds additional capabilities to Dart Streams and StreamControllers.
-  rxdart: ^0.24.1
+  rxdart: ^0.20.0
   # Package that helps you implementing BloC Pattern by Dependency Injection in your project.
   # bloc_pattern: ^2.5.1
   bloc_pattern: ^1.3.0
